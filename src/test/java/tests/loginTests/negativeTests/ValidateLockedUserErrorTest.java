@@ -1,12 +1,15 @@
 package tests.loginTests.negativeTests;
 
+import org.testng.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
-public class ValidateLockedUserError {
+public class ValidateLockedUserErrorTest {
 
-    public static void main(String[] args) {
+   @Test(testName = "Locked User Error")
+           public  void ValidateLockedUserError(){
 
         WebDriver driver = new ChromeDriver();
 
@@ -18,11 +21,14 @@ public class ValidateLockedUserError {
 
         String actualUrl = driver.getCurrentUrl();
 
-        if (baseUrl.equals(actualUrl)) {
-            System.out.println("URL is correct");
-        } else {
-            System.out.println("URL is incorrect");
-        }
+//        if (baseUrl.equals(actualUrl)) {
+//            System.out.println("URL is correct");
+//        } else {
+//            System.out.println("URL is incorrect");
+//        }
+
+        Assert.assertEquals(baseUrl,actualUrl, "The URL is different" );
+
 
         driver.findElement(By.cssSelector("[data-test=\"username\"]")).sendKeys("locked_out_user");
         driver.findElement(By.cssSelector("[data-test=\"password\"]")).sendKeys("secret_sauce");
@@ -32,11 +38,14 @@ public class ValidateLockedUserError {
         String textOfErrorMessage = driver.findElement(By.cssSelector("[data-test=\"error\"]")).getText();
         String errorMessage = "Epic sadface: Sorry, this user has been locked out.";
 
-        if (textOfErrorMessage.equals(errorMessage)) {
-            System.out.println("errorMessage is correct");
-        } else {
-            System.out.println("errorMessage is incorrect");
-        }
+//        if (textOfErrorMessage.equals(errorMessage)) {
+//            System.out.println("errorMessage is correct");
+//        } else {
+//            System.out.println("errorMessage is incorrect");
+//        }
+
+        Assert.assertEquals(textOfErrorMessage,errorMessage, "The errorMessage is different" );
+
 
         // Execute login scenarios with the following combinations:
 
@@ -48,11 +57,14 @@ public class ValidateLockedUserError {
 
         String actualUrlTest1 = driver.getCurrentUrl();
 
-        if (baseUrlTest1.equals(actualUrlTest1)) {
-            System.out.println("URL is correct");
-        } else {
-            System.out.println("URL is incorrect");
-        }
+//        if (baseUrlTest1.equals(actualUrlTest1)) {
+//            System.out.println("URL is correct");
+//        } else {
+//            System.out.println("URL is incorrect");
+//        }
+
+        Assert.assertEquals(baseUrlTest1,actualUrlTest1, "The URL is different" );
+
 
         driver.findElement(By.cssSelector("[data-test=\"username\"]")).sendKeys("standard_user");
         driver.findElement(By.cssSelector("[data-test=\"password\"]")).sendKeys("123456");
@@ -65,11 +77,14 @@ public class ValidateLockedUserError {
         String textOfErrorMessagescenario1 = driver.findElement(By.cssSelector("[data-test=\"error\"]")).getText();
         String errorMessagescenario1= "Epic sadface: Username and password do not match any user in this service";
 
-        if (textOfErrorMessagescenario1.equals(errorMessagescenario1)) {
-            System.out.println("errorMessage is correct");
-        } else {
-            System.out.println("errorMessage is incorrect");
-        }
+//        if (textOfErrorMessagescenario1.equals(errorMessagescenario1)) {
+//            System.out.println("errorMessage is correct");
+//        } else {
+//            System.out.println("errorMessage is incorrect");
+//        }
+
+            Assert.assertEquals(textOfErrorMessagescenario1,errorMessagescenario1, "The errorMessage is different" );
+
 
 
         //• username incorrect + password correct
@@ -79,11 +94,14 @@ public class ValidateLockedUserError {
 
             String actualUrlTest2 = driver.getCurrentUrl();
 
-            if (baseUrlTest2.equals(actualUrlTest2)) {
-                System.out.println("URL is correct");
-            } else {
-                System.out.println("URL is incorrect");
-            }
+//            if (baseUrlTest2.equals(actualUrlTest2)) {
+//                System.out.println("URL is correct");
+//            } else {
+//                System.out.println("URL is incorrect");
+//            }
+
+            Assert.assertEquals(baseUrlTest2,actualUrlTest2, "The URL is different" );
+
 
             driver.findElement(By.cssSelector("[data-test=\"username\"]")).sendKeys("hadas");
             driver.findElement(By.cssSelector("[data-test=\"password\"]")).sendKeys("secret_sauce");
@@ -96,11 +114,14 @@ public class ValidateLockedUserError {
 
             String actualUrlTest3 = driver.getCurrentUrl();
 
-            if (baseUrlTest3.equals(actualUrlTest3)) {
-                System.out.println("URL is correct");
-            } else {
-                System.out.println("URL is incorrect");
-            }
+//            if (baseUrlTest3.equals(actualUrlTest3)) {
+//                System.out.println("URL is correct");
+//            } else {
+//                System.out.println("URL is incorrect");
+//            }
+
+            Assert.assertEquals(baseUrlTest3,actualUrlTest3, "The URL is different" );
+
 
             driver.findElement(By.cssSelector("[data-test=\"username\"]")).sendKeys("hadas");
             driver.findElement(By.cssSelector("[data-test=\"password\"]")).sendKeys("123456");
@@ -113,11 +134,14 @@ public class ValidateLockedUserError {
 
             String actualUrlTest4 = driver.getCurrentUrl();
 
-            if (baseUrlTest4.equals(actualUrlTest4)) {
-                System.out.println("URL is correct");
-            } else {
-                System.out.println("URL is incorrect");
-            }
+//            if (baseUrlTest4.equals(actualUrlTest4)) {
+//                System.out.println("URL is correct");
+//            } else {
+//                System.out.println("URL is incorrect");
+//            }
+
+            Assert.assertEquals(baseUrlTest4,actualUrlTest4, "The URL is different" );
+
 
             driver.findElement(By.cssSelector("[data-test=\"username\"]")).sendKeys("");
             driver.findElement(By.cssSelector("[data-test=\"password\"]")).sendKeys("secret_sauce");
@@ -130,11 +154,14 @@ public class ValidateLockedUserError {
         String textOfErrorMessagescenario2 = driver.findElement(By.cssSelector("[data-test=\"error\"]")).getText();
         String errorMessagescenario2= "Epic sadface: Username is required";
 
-        if (textOfErrorMessagescenario2.equals(errorMessagescenario2)) {
-            System.out.println("errorMessage is correct");
-        } else {
-            System.out.println("errorMessage is incorrect");
-        }
+//        if (textOfErrorMessagescenario2.equals(errorMessagescenario2)) {
+//            System.out.println("errorMessage is correct");
+//        } else {
+//            System.out.println("errorMessage is incorrect");
+//        }
+
+            Assert.assertEquals(textOfErrorMessagescenario2,errorMessagescenario2, "The errorMessage is different" );
+
 
 
         //• username correct + password empty
@@ -144,11 +171,14 @@ public class ValidateLockedUserError {
 
             String actualUrlTest5 = driver.getCurrentUrl();
 
-            if (baseUrlTest5.equals(actualUrlTest5)) {
-                System.out.println("URL is correct");
-            } else {
-                System.out.println("URL is incorrect");
-            }
+//            if (baseUrlTest5.equals(actualUrlTest5)) {
+//                System.out.println("URL is correct");
+//            } else {
+//                System.out.println("URL is incorrect");
+//            }
+
+            Assert.assertEquals(baseUrlTest5,actualUrlTest5, "The URL is different" );
+
 
             driver.findElement(By.cssSelector("[data-test=\"username\"]")).sendKeys("standard_user");
             driver.findElement(By.cssSelector("[data-test=\"password\"]")).sendKeys("");
@@ -161,12 +191,13 @@ public class ValidateLockedUserError {
         String textOfErrorMessagescenario3 = driver.findElement(By.cssSelector("[data-test=\"error\"]")).getText();
         String errorMessagescenario3= "Epic sadface: Password is required";
 
-        if (textOfErrorMessagescenario3.equals(errorMessagescenario3)) {
-            System.out.println("errorMessage is correct");
-        } else {
-            System.out.println("errorMessage is incorrect");
-        }
+//        if (textOfErrorMessagescenario3.equals(errorMessagescenario3)) {
+//            System.out.println("errorMessage is correct");
+//        } else {
+//            System.out.println("errorMessage is incorrect");
+//        }
 
+          Assert.assertEquals(textOfErrorMessagescenario3,errorMessagescenario3, "The errorMessage is different" );
 
 
 
@@ -177,11 +208,14 @@ public class ValidateLockedUserError {
 
             String actualUrlTest6 = driver.getCurrentUrl();
 
-            if (baseUrlTest6.equals(actualUrlTest6)) {
-                System.out.println("URL is correct");
-            } else {
-                System.out.println("URL is incorrect");
-            }
+//            if (baseUrlTest6.equals(actualUrlTest6)) {
+//                System.out.println("URL is correct");
+//            } else {
+//                System.out.println("URL is incorrect");
+//            }
+
+             Assert.assertEquals(baseUrlTest6,actualUrlTest6, "The URL is different" );
+
 
             driver.findElement(By.cssSelector("[data-test=\"username\"]")).sendKeys("");
             driver.findElement(By.cssSelector("[data-test=\"password\"]")).sendKeys("");
